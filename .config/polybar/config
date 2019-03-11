@@ -1,0 +1,204 @@
+[colors]
+background = #01000000
+foreground = #ffffff
+
+grey = #666666
+green = #aaff77
+yellow = #ffa900
+red = #f53c3c
+
+[bar/top]
+monitor = ${env:MONITOR:} 
+width = 100%
+height = 27
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+spacing = 1 
+padding-right = 5
+module-margin = 4
+
+font-0 = UbuntuMono Nerd Font:style=Regular:size=10;1
+
+modules-left = menu
+modules-right = pulseaudio backlight battery date
+
+tray-position = right 
+tray-padding = 2 
+tray-transparent = true
+true tray-background = #0063ff
+
+[bar/bottom]
+monitor = ${env:MONITOR:}
+bottom = true
+width = 100%
+height = 27
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+
+spacing = 2 
+padding-right = 4
+module-margin-left = 0
+module-margin-right = 6
+
+font-0 = ${bar/top.font-0}
+
+modules-left = i3
+modules-right = network cpu memory
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+label-muted = 婢 muted
+label-muted-foreground = ${colors.grey}
+ramp-volume-0 = 奄 
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+
+[module/backlight]
+type = internal/backlight
+
+card = intel_backlight
+
+format = <ramp> <bar>
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-fill-foreground = ${colors.green}
+bar-empty = ─
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.yellow}
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-10 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 = 
+animation-charging-framerate = 500 
+
+[module/i3]
+type = internal/i3
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4
+ws-icon-4 = 5
+
+label-focused-foreground = ${colors.green}
+label-focused-padding = 2
+label-unfocused-padding = 2
+label-visible-padding = 2
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload>
+label = CPU
+
+ramp-coreload-0 = 
+ramp-coreload-0-foreground = ${colors.green}
+ramp-coreload-1 = 
+ramp-coreload-1-foreground = ${colors.green}
+ramp-coreload-2 = 
+ramp-coreload-2-foreground = ${colors.green}
+ramp-coreload-3 = 
+ramp-coreload-3-foreground = ${colors.yellow}
+ramp-coreload-4 = 
+ramp-coreload-4-foreground = ${colors.red}
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label = RAM
+
+bar-used-width = 20
+bar-used-foreground-0 = ${colors.green}
+bar-used-foreground-1 = ${colors.green}
+bar-used-foreground-2 = ${colors.yellow}
+bar-used-foreground-3 = ${colors.red}
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = ${colors.foreground}
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = ${colors.grey}
+
+[module/network]
+type = internal/network
+interface = wlp58s0
+interval = 3.0
+ping-interval = 10
+
+format-connected = <label-connected> |<ramp-signal>
+label-connected = ﰬ %downspeed% ﰵ %upspeed% | %essid% | %local_ip%
+label-disconnected = 睊 disconnected
+label-disconnected-foreground = ${colors.grey}
+
+ramp-signal-0 = ﮙ
+ramp-signal-0-foreground = ${colors.red}
+ramp-signal-1 = 
+ramp-signal-1-foreground = ${colors.red}
+ramp-signal-2 = 
+ramp-signal-2-foreground = ${colors.yellow}
+ramp-signal-3 = 
+ramp-signal-3-foreground = ${colors.yellow}
+ramp-signal-4 = 
+ramp-signal-4-foreground = ${colors.green}
+ramp-signal-5 = ﮚ
+ramp-signal-5-foreground = ${colors.green}
+ramp-signal-6 = 
+ramp-signal-6-foreground = ${colors.green}
+
+[module/menu]
+type = custom/menu
+
+format-padding = 2
+
+label-open = Apps
+label-close = x
