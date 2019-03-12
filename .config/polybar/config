@@ -1,5 +1,5 @@
 [colors]
-background = #01000000
+background = #99000000
 foreground = #ffffff
 
 grey = #666666
@@ -21,11 +21,11 @@ module-margin = 4
 
 font-0 = UbuntuMono Nerd Font:style=Regular:size=10;1
 
-modules-left = menu
+modules-left = network
 modules-right = pulseaudio backlight battery date
 
-tray-position = right 
-tray-padding = 2 
+tray-position = left
+tray-padding = 4 
 tray-transparent = true
 true tray-background = #0063ff
 
@@ -46,7 +46,7 @@ module-margin-right = 6
 font-0 = ${bar/top.font-0}
 
 modules-left = i3
-modules-right = network cpu memory
+modules-right = cpu memory
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -175,8 +175,8 @@ interface = wlp58s0
 interval = 3.0
 ping-interval = 10
 
-format-connected = <label-connected> |<ramp-signal>
-label-connected = ﰬ %downspeed% ﰵ %upspeed% | %essid% | %local_ip%
+format-connected = <label-connected> 
+label-connected = %essid% | %local_ip% | ﰬ %downspeed% ﰵ %upspeed%
 label-disconnected = 睊 disconnected
 label-disconnected-foreground = ${colors.grey}
 

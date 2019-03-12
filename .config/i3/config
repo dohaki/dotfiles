@@ -4,6 +4,13 @@ set $mod Mod4
 # font
 font pango:Ubuntu Mono 10 
 
+# disable title bar
+for_window [class="^.*"] border pixel 0
+
+# gaps
+gaps inner 15
+gaps outer 5 
+
 # class                 border    backgr.   text    indicator child_border
 client.focused          #aa000000 #aa000000 #aaff77 #aaff77   #ffffff
 client.focused_inactive #aa000000 #aa000000 #ffffff #222222
@@ -19,9 +26,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # set background
 exec_always --no-startup-id \
 	feh --bg-scale  --randomize $HOME/Pictures/Wallpapers/*
-
-# transparent terminal via compton
-exec_always --no-startup-id compton
 
 # start network manager applet
 exec_always --no-startup-id nm-applet
@@ -40,6 +44,9 @@ bindsym $mod+d exec \
 	"rofi -modi run,drun,ssh -theme $HOME/.config/rofi/themes/monokai.rasi -show drun"
 bindsym Mod1+Tab exec \
 	rofi -theme $HOME/.config/rofi/themes/monokai.rasi -show window
+
+# lock screen
+bindsym $mod+Shift+e exec $HOME/.config/i3/i3lock-fancy-multimonitor/lock -n -p
 
 # change focus
 bindsym $mod+j focus left
@@ -129,8 +136,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
