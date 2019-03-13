@@ -4,6 +4,9 @@ set $mod Mod4
 # font
 font pango:Ubuntu Mono 10 
 
+# transparent terminal via compton
+exec_always --no-startup-id compton
+
 # disable title bar
 for_window [class="^.*"] border pixel 0
 
