@@ -16,18 +16,17 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 spacing = 1 
-padding-right = 5
+padding-right = 4
 module-margin = 4
 
 font-0 = UbuntuMono Nerd Font:style=Regular:size=10;1
 
 modules-left = network
+modules-center = title
 modules-right = pulseaudio backlight battery date
 
 tray-position = left
-tray-padding = 4 
-tray-transparent = true
-true tray-background = #0063ff
+tray-padding = 4
 
 [bar/bottom]
 monitor = ${env:MONITOR:}
@@ -38,15 +37,26 @@ height = 27
 background = ${bar/top.background}
 foreground = ${bar/top.foreground}
 
-spacing = 2 
+spacing = 1
 padding-right = 4
-module-margin-left = 0
-module-margin-right = 6
+module-margin = 4
 
 font-0 = ${bar/top.font-0}
 
 modules-left = i3
+modules-center = spotify
 modules-right = cpu memory
+
+[module/title]
+type = internal/xwindow
+
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 4
+
+label = %title%
+label-maxlen = 50
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -116,9 +126,9 @@ animation-charging-framerate = 500
 [module/i3]
 type = internal/i3
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
+ws-icon-0 = 1
+ws-icon-1 = 2
+ws-icon-2 = 3
 ws-icon-3 = 4
 ws-icon-4 = 5
 
@@ -146,7 +156,7 @@ ramp-coreload-4-foreground = ${colors.red}
 
 [module/date]
 type = internal/date
-interval = 1.0
+interval = 0.5
 date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
@@ -172,7 +182,7 @@ bar-used-empty-foreground = ${colors.grey}
 [module/network]
 type = internal/network
 interface = wlp58s0
-interval = 3.0
+interval = 1.0
 ping-interval = 10
 
 format-connected = <label-connected> 
@@ -180,25 +190,8 @@ label-connected = %essid% | %local_ip% | ﰬ %downspeed% ﰵ %upspeed%
 label-disconnected = 睊 disconnected
 label-disconnected-foreground = ${colors.grey}
 
-ramp-signal-0 = ﮙ
-ramp-signal-0-foreground = ${colors.red}
-ramp-signal-1 = 
-ramp-signal-1-foreground = ${colors.red}
-ramp-signal-2 = 
-ramp-signal-2-foreground = ${colors.yellow}
-ramp-signal-3 = 
-ramp-signal-3-foreground = ${colors.yellow}
-ramp-signal-4 = 
-ramp-signal-4-foreground = ${colors.green}
-ramp-signal-5 = ﮚ
-ramp-signal-5-foreground = ${colors.green}
-ramp-signal-6 = 
-ramp-signal-6-foreground = ${colors.green}
-
-[module/menu]
-type = custom/menu
-
-format-padding = 2
-
-label-open = Apps
-label-close = x
+[module/spotify]
+type = custom/script
+interval = 1
+format = <label>
+exec = python ~/bin/polybar-spotify/spotify_status.py -f '{play_pause} {artist} - {song}' -p '契,'
