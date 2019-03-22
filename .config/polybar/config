@@ -17,7 +17,8 @@ foreground = ${colors.foreground}
 
 spacing = 1 
 padding-right = 4
-module-margin = 4
+padding-left = 1
+module-margin = 2 
 
 font-0 = UbuntuMono Nerd Font:style=Regular:size=10;1
 
@@ -26,7 +27,7 @@ modules-center = title
 modules-right = pulseaudio backlight battery date
 
 tray-position = left
-tray-padding = 4
+tray-padding = 1
 
 [bar/bottom]
 monitor = ${env:MONITOR:}
@@ -39,13 +40,13 @@ foreground = ${bar/top.foreground}
 
 spacing = 1
 padding-right = 4
-module-margin = 4
+module-margin = 2
 
 font-0 = ${bar/top.font-0}
 
 modules-left = i3
 modules-center = spotify
-modules-right = cpu memory
+modules-right =  cpu memory
 
 [module/title]
 type = internal/xwindow
@@ -65,6 +66,7 @@ use-ui-max = true
 interval = 5
 
 format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage:3:3%%
 label-muted = 婢 muted
 label-muted-foreground = ${colors.grey}
 ramp-volume-0 = 奄 
@@ -76,7 +78,9 @@ type = internal/backlight
 
 card = intel_backlight
 
-format = <ramp> <bar>
+format = <ramp> <label>
+
+label = %percentage:3:3%%
 
 ramp-0 = 
 ramp-1 = 
@@ -99,6 +103,10 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
+
+label-charging = %percentage:3:3%%
+label-discharging = %percentage:3:3%%
+label-full = %percentage:3:3%%
 
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = ${colors.red}
@@ -140,8 +148,8 @@ label-visible-padding = 2
 [module/cpu]
 type = internal/cpu
 interval = 0.5
-format = <label> <ramp-coreload>
-label = CPU
+format = <label> 
+label = ﬙ %percentage:3:3%%
 
 ramp-coreload-0 = 
 ramp-coreload-0-foreground = ${colors.green}
@@ -157,13 +165,14 @@ ramp-coreload-4-foreground = ${colors.red}
 [module/date]
 type = internal/date
 interval = 0.5
-date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+date-alt = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
 type = internal/memory
-format = <label> <bar-used>
-label = RAM
+interval = 0.5
+format = <label> 
+label =  %percentage_used:3:3%%
 
 bar-used-width = 20
 bar-used-foreground-0 = ${colors.green}
@@ -186,8 +195,8 @@ interval = 1.0
 ping-interval = 10
 
 format-connected = <label-connected> 
-label-connected = %essid% | %local_ip% | ﰬ %downspeed% ﰵ %upspeed%
-label-disconnected = 睊 disconnected
+label-connected = %essid% | %local_ip% | ﰬ %downspeed:7:7% ﰵ %upspeed:7:7%
+label-disconnected = disconnected
 label-disconnected-foreground = ${colors.grey}
 
 [module/spotify]
