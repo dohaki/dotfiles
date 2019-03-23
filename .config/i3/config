@@ -44,9 +44,9 @@ bindsym $mod+Shift+q kill
 
 # start rofi
 bindsym $mod+d exec \
-	"rofi -modi run,drun,ssh -theme $HOME/.config/rofi/themes/monokai.rasi -show drun"
+	"rofi -modi drun,run,ssh -theme $HOME/.config/rofi/themes/solarized-darker.rasi -show drun"
 bindsym Mod1+Tab exec \
-	rofi -theme $HOME/.config/rofi/themes/monokai.rasi -show window
+	rofi -theme $HOME/.config/rofi/themes/solarized-darker.rasi -show window
 
 # lock screen
 bindsym $mod+Shift+e exec $HOME/.config/i3/i3lock-fancy-multimonitor/lock -n -p
