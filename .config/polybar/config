@@ -46,7 +46,7 @@ font-0 = ${bar/top.font-0}
 
 modules-left = i3
 modules-center = spotify
-modules-right =  cpu memory
+modules-right =  cpu memory filesystem
 
 [module/title]
 type = internal/xwindow
@@ -204,3 +204,16 @@ type = custom/script
 interval = 1
 format = <label>
 exec = python ~/bin/polybar-spotify/spotify_status.py -f '{play_pause} {artist} - {song}' -p '契,'
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+
+interval = 10
+
+fixed-values = true
+format-mounted = <label-mounted>
+format-unmounted = <label-unmounted>
+label-mounted =  %percentage_used:3:3%%
+label-unmounted = %mountpoint%: not mounted
