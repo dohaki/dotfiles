@@ -49,7 +49,8 @@ bindsym Mod1+Tab exec \
 	rofi -theme $HOME/.config/rofi/themes/solarized-darker.rasi -show window
 
 # lock screen
-bindsym $mod+Shift+e exec $HOME/.config/i3/i3lock-fancy-multimonitor/lock -n -p
+bindsym $mod+Shift+s exec \
+        "cd $HOME/bin/i3lock-color && ./lock.sh"
 
 # change focus
 bindsym $mod+j focus left
