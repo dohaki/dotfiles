@@ -25,43 +25,44 @@
     blue: #268bd2;
     cyan: #2aa198;
     green: #aaff77;
+    dark-green: #09af79;
     white: #ffffff;
 
     /* Solarized Darker Theme */
-    transparent-background: rgba ( 0, 0, 0, 0 % );
+    transparent-background:      rgba ( 0, 0, 0, 50 % );
+    transparent:                 rgba ( 0, 0, 0, 0 % );
     foreground:                  @white;
-    background:                  rgba ( 0, 0, 0, 90 % );
 
     normal-foreground:           @foreground;
-    normal-background:           @transparent-background;
+    normal-background:           @transparen;
     active-foreground:           @green;
-    active-background:           @transparent-background;
+    active-background:           @transparent;
     urgent-foreground:           @red;
-    urgent-background:           @transparent-background;
+    urgent-background:           @transparent;
 
-    selected-normal-foreground:  @white;
-    selected-normal-background:  @base02;
-    selected-active-foreground:  @green;
-    selected-active-background:  @base02;
+    selected-normal-foreground:  @black;
+    selected-normal-background:  @white;
+    selected-active-foreground:  @dark-green;
+    selected-active-background:  @white;
     selected-urgent-foreground:  @red;
-    selected-urgent-background:  @base02;
+    selected-urgent-background:  @white;
 
     alternate-normal-foreground: @foreground;
-    alternate-normal-background: @transparent-background;
+    alternate-normal-background: @transparent;
     alternate-active-foreground: @active-foreground;
-    alternate-active-background: @transparent-background;
+    alternate-active-background: @transparent;
     alternate-urgent-foreground: @urgent-foreground;
-    alternate-urgent-background: @transparent-background;
+    alternate-urgent-background: @transparent;
 
-    separatorcolor:              @green;
+    separatorcolor:              @white;
 
     /* Main element styles */
-    border-color:                @green;
+    border-color:                @white;
     spacing:                     2;
-    background-color:            @transparent-background;
+    background-color:            @transparent;
 }
 window {
-    background-color: @background;
+    background-color: @transparent-background;
     border:           1;
     padding:          20;
 }
@@ -81,7 +82,7 @@ listview {
     fixed-height: 0;
     border:       1px dash 0px 0px ;
     border-color: @separatorcolor;
-    spacing:      2px ;
+    spacing:      2px;
     scrollbar:    false;
     padding:      8px 0px 0px 0px;
 }
@@ -154,5 +155,6 @@ entry {
 }
 prompt {
     spacing:    0;
+    padding: 0 10px 0 0;
     text-color: @normal-foreground;
 }
