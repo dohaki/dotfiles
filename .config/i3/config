@@ -12,7 +12,7 @@ for_window [class="^.*"] border pixel 0
 
 # gaps
 gaps inner 15
-gaps outer 5 
+gaps outer 5
 
 # class                 border    backgr.   text    indicator child_border
 client.focused          #aa000000 #aa000000 #aaff77 #aaff77   #ffffff
@@ -44,7 +44,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi
 bindsym $mod+d exec \
-	"rofi -modi drun,run,ssh -theme $HOME/.config/rofi/themes/solarized-darker.rasi -show drun"
+	"rofi -combi-modi drun,run -theme $HOME/.config/rofi/themes/solarized-darker.rasi -show combi -modi combi,ssh,window"
 bindsym Mod1+Tab exec \
 	rofi -theme $HOME/.config/rofi/themes/solarized-darker.rasi -show window
 
