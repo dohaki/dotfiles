@@ -183,12 +183,12 @@ mode $audioMode {
 bindsym $mod+a mode $audioMode
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 set $brightnessMode "Brightness mode: [up] brighter | [down] darker"
 mode $brightnessMode {
-	bindsym Up exec xbacklight -inc 20 
-	bindsym Down exec xbacklight -dec 20
+	bindsym Up exec xbacklight -inc 5
+	bindsym Down exec xbacklight -dec 5
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+b mode "default"
