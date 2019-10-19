@@ -32,3 +32,8 @@ export PARITY_VERSIOM="stable"
 
 # FUZZY FINDER
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Zokrates
+export PATH=$PATH:$HOME/.zokrates/bin
+export ZOKRATES_HOME=$HOME/.zokrates/stdlib
+
