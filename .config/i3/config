@@ -9,6 +9,7 @@ exec_always --no-startup-id compton
 
 # disable title bar
 for_window [class="^.*"] border pixel 0
+for_window [title=".*Emulator.*"] floating enable
 
 # gaps
 gaps inner 15
